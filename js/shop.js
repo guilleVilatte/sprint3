@@ -60,7 +60,7 @@ var cartList = [];
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 var cart = [];
-let eliminado;
+
 let seleccionado;
 
 var total = 0;
@@ -127,9 +127,8 @@ function applyPromotionsCart() {
   // Apply promotions to each item in the array "cart"
   for (seleccionado of cart) {
     if (seleccionado.id == 1 && seleccionado.quantity >= 3) {
-      console.log(seleccionado.quantity)
       seleccionado.subtotalWithDiscount = 10 * seleccionado.quantity;
-    }
+    } 
     if (seleccionado.id == 3 && seleccionado.quantity >= 10) {
       seleccionado.subtotalWithDiscount = (2 * seleccionado.subtotal) / 3;
     }
@@ -160,13 +159,42 @@ function addToCart(id) {
 
 // Exercise 8
 function removeFromCart(id) {
-  if (seleccionado.quantity > 1) {
-    seleccionado.quantity--;
-    subtotal-=seleccionado.price;
-  } else {
-    eliminado = cart.filter((seleccionado) => seleccionado.id == id);
-    seleccionado.subtotal = 0;
-    console.log(eliminado)
+  for (cartItem of cart) {
+    if (cartItem.id == id) {
+      if (cartItem.quantity > 1) {
+        --cartItem.quantity;
+        if (cartItem.id == 1 && cartItem.quantity > 2) {
+          cartItem.subtotalWithDiscount -= 10;
+          cartItem.subtotal -= cartItem.price;
+          total -= 10;
+        } else if (cartItem.id == 1 && cartItem.quantity == 2){
+          cartItem.subtotalWithDiscount -= 9;
+          cartItem.subtotal -= cartItem.price;
+          total -= 9;
+        } else if (cartItem.id == 3 && cartItem.quantity >= 10){
+          cartItem.subtotalWithDiscount -= (2*cartItem.price)/3;
+          cartItem.subtotal -= cartItem.price;
+          total -= (2*cartItem.price)/3;
+        } else if (cartItem.id == 3 && cartItem.quantity == 9){
+          cartItem.subtotalWithDiscount += 16.67;
+          cartItem.subtotal -= cartItem.price;
+          total += 11.67;
+        } else{
+        cartItem.subtotal -= cartItem.price;
+        total -= cartItem.price;
+        }
+        printCart();
+      } else {
+        let index = cart.indexOf(cartItem);
+        cart.splice(index, 1);
+        cartItem.subtotal = 0;
+        total = total - cartItem.price;
+        printCart();
+        if (cart.length == 0) {
+          cleanCart();
+        }
+      }
+    }
   }
 }
 
@@ -182,29 +210,29 @@ function printCart() {
                                                     <th scope="col">Products</th>
                                                     <th scope="col">Price</th>
                                                     <th scope="col">Qty.</th>
-                                                    <th scope="col">Subtotal</th>
+                                                    <th scope="col">Total</th>
                                                   </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="cuerpo">
                                                 </tbody>
                                               </table>
-                                              <div class="text-center fs-2">Total:€${total}</div>`;
-  for (seleccionado of cart) {
-    if (seleccionado.subtotalWithDiscount == undefined) {
+                                              <div class="text-center fs-2">Total:€${total.toFixed(2)}</div>`;
+  for (cartItem of cart) {
+    if (cartItem.subtotalWithDiscount == undefined || !((cartItem.id == 1 && cartItem.quantity >= 3) || (cartItem.id == 3 && cartItem.quantity >= 10))) {
       document.querySelector("tbody").insertAdjacentHTML("beforeend", `<tr>
-              <td>${seleccionado.name}</td>
-              <td>${seleccionado.price}</td>
-              <td>${seleccionado.quantity}</td>
-              <td>${seleccionado.subtotal}</td>
-              <td><a onclick="removeFromCart(id)" class="btn btn-danger pt-0 pb-0" role="button">-</a></td>
+              <td>${cartItem.name}</td>
+              <td>${cartItem.price}</td>
+              <td>${cartItem.quantity}</td>
+              <td>${cartItem.subtotal}</td>
+              <td><a onclick="removeFromCart(${cartItem.id})" class="btn btn-danger pt-0 pb-0" role="button">-</a></td>
             <tr>`)
     } else {
       document.querySelector("tbody").insertAdjacentHTML("beforeend", `<tr>
-            <td>${seleccionado.name}</td>
-            <td>${seleccionado.price}</td>
-            <td>${seleccionado.quantity}</td>
-            <td>${seleccionado.subtotalWithDiscount}</td>
-            <td><a onclick="removeFromCart(id)" class="btn btn-danger pt-0 pb-0" role="button">-</a></td>
+            <td>${cartItem.name}</td>
+            <td>${cartItem.price}</td>
+            <td>${cartItem.quantity}</td>
+            <td>${cartItem.subtotalWithDiscount.toFixed(2)}</td>
+            <td><a onclick="removeFromCart(${cartItem.id})" class="buttonDelete btn btn-danger pt-0 pb-0" role="button">-</a></td>
           <tr>`)
     }
   }

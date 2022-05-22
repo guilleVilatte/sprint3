@@ -13,13 +13,21 @@ let errorEmail = document.getElementById("errorEmail");
 // Exercise 6
 function validate() {
   // Validate fields entered by the user: name, phone, password, and email
-  e.preventDefault();
-  let isValid = false;
-  let nom = /^[A-Z]+$/i
-  let contraseña = /^(?=[A-Za-z]+[0-9]|[0-9]+[A-Za-z])[A-Za-z0-9]{4,8}$/;
-  //if (nombre.value.lenght<3 || ) {
-    
-  } 
-//}
+   
+(function () {
+  'use strict'
+  var form = document.querySelector('.needs-validation');
+  
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })()
+
+}
 
 
