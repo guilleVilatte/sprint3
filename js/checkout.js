@@ -16,7 +16,7 @@ function validate() {
 
 let form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
-  if (!password.checkValidity()) {
+  if (!form.checkValidity()) {
     event.preventDefault();
     event.stopPropagation();
     errorPassword.style.display="block";
@@ -57,9 +57,32 @@ form.addEventListener("submit", function (event) {
 
 function check(id){
   let elem = document.getElementById(id);
-  if (!elem.checkValidity()) {
-    elem.style.borderColor="red";
-  } else {
-    elem.style.borderColor="green";
+  if(elem == password && !password.checkValidity()){
+    errorPassword.style.display="block";
+    password.style.borderColor="red";
+  } else if (password.checkValidity()) {
+    errorPassword.style.display="none";
+    password.style.borderColor="green";
+  } 
+  if(elem == nombre && !nombre.checkValidity()){
+    errorName.style.display="block";
+    nombre.style.borderColor="red";
+  } else if (nombre.checkValidity()){
+    errorName.style.display="none";
+    nombre.style.borderColor="green";
+  }
+  if (elem == phone && !phone.checkValidity()) {
+    errorPhone.style.display="block";
+    phone.style.borderColor="red";
+  } else if (phone.checkValidity()) {
+    errorPhone.style.display="none";
+    phone.style.borderColor="green";
+  }
+  if (elem == email && !email.checkValidity()) {
+    errorEmail.style.display="block";
+    email.style.borderColor="red";
+  } else if (email.checkValidity()) {
+    errorEmail.style.display="none";
+    email.style.borderColor="green";
   }
 }
