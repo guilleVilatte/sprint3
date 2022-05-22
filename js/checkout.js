@@ -13,21 +13,53 @@ let errorEmail = document.getElementById("errorEmail");
 // Exercise 6
 function validate() {
   // Validate fields entered by the user: name, phone, password, and email
-   
-(function () {
-  'use strict'
-  var form = document.querySelector('.needs-validation');
-  
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
 
-        form.classList.add('was-validated')
-      }, false)
-    })()
-
+let form = document.querySelector("form");
+form.addEventListener("submit", function (event) {
+  if (!password.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+    errorPassword.style.display="block";
+    password.style.borderColor="red";
+  } else {
+    errorPassword.style.display="none";
+    password.style.borderColor="green";
+  }
+  if (!nombre.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+    errorName.style.display="block";
+    nombre.style.borderColor="red";
+  } else {
+    errorName.style.display="none";
+    nombre.style.borderColor="green";
+  }
+  if (!phone.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+    errorPhone.style.display="block";
+    phone.style.borderColor="red";
+  } else {
+    errorPhone.style.display="none";
+    phone.style.borderColor="green";
+  }
+  if (!email.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+    errorEmail.style.display="block";
+    email.style.borderColor="red";
+  } else {
+    errorEmail.style.display="none";
+    email.style.borderColor="green";
+  }
+})
 }
 
-
+function check(id){
+  let elem = document.getElementById(id);
+  if (!elem.checkValidity()) {
+    elem.style.borderColor="red";
+  } else {
+    elem.style.borderColor="green";
+  }
+}

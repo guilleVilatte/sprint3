@@ -120,10 +120,10 @@
           </h3>
         </div>
       </div>
-      <form class="form needs-validation" novalidate>
+      <form class="form" novalidate>
         <div class="row bord p-5 shadow m-5">
           <div class="col-sm-6">
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fName" class="form-label">First Name:</label>
               <input
                 id="fName"
@@ -133,12 +133,13 @@
                 minlength="3"
                 pattern="[A-Za-z ]{3,50}"
                 required
+                oninput="check(id)"
               />
               <div id="errorName" class="invalid-feedback">
                 This field is required and must have, at least, 3 characters
               </div>
             </div>
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fEmail" class="form-label">Email:</label>
               <input
                 id="fEmail"
@@ -148,13 +149,14 @@
                 minlength="3"
                 pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                 required
+                oninput="check(id)"
               />
               <div id="errorEmail" class="invalid-feedback">
                 This field is required and must contain an '@' and have, at
                 least, 3 characters
               </div>
             </div>
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fAddress" class="form-label">Address:</label>
               <input
                 id="fAddress"
@@ -171,7 +173,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fLastN" class="form-label">Last Name:</label>
               <input
                 id="fLastN"
@@ -186,7 +188,7 @@
                 This field is required and must have, at least, 3 characters
               </div>
             </div>
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fPassword" class="password form-label">Password:</label>
               <input
                 id="fPassword"
@@ -194,14 +196,15 @@
                 type="password"
                 minlength="3"
                 placeholder="Password"
-                pattern="[A-Za-z0-9 ]{3-10}"
+                pattern="[A-Za-z0-9]{3,20}"
                 required
+                oninput="check(id)"
               />
               <div id="errorPassword" class="invalid-feedback">
                 Enter a correct password
               </div>
             </div>
-            <div class="mt-3 has-validation">
+            <div class="mt-3">
               <label for="fPhone" class="phone form-label">Phone Number:</label>
               <input
                 id="fPhone"
@@ -212,6 +215,7 @@
                 max="999999993"
                 pattern="[0-9]"
                 required
+                oninput="check(id)"
               />
               <div id="errorPhone" class="invalid-feedback">
                 Invalid phone number!! Must be 9 digits with no letters
