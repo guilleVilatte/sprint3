@@ -65,6 +65,9 @@ let seleccionado;
 
 var total = 0;
 
+let priceWithPromoAceite = 10;
+
+
 let productsCopia = JSON.parse(JSON.stringify(products));
 // Exercise 1
 function buy(id) {
@@ -127,8 +130,8 @@ function applyPromotionsCart() {
   // Apply promotions to each item in the array "cart"
   for (seleccionado of cart) {
     if (seleccionado.id == 1 && seleccionado.quantity >= 3) {
-      seleccionado.subtotalWithDiscount = 10 * seleccionado.quantity;
-    } 
+      seleccionado.subtotalWithDiscount = priceWithPromoAceite * seleccionado.quantity;
+    }
     if (seleccionado.id == 3 && seleccionado.quantity >= 10) {
       seleccionado.subtotalWithDiscount = (2 * seleccionado.subtotal) / 3;
     }
@@ -159,29 +162,31 @@ function addToCart(id) {
 
 // Exercise 8
 function removeFromCart(id) {
+  let priceWithPromoMezcla;
   for (cartItem of cart) {
+    priceWithPromoMezcla = (2 * cartItem.price) / 3;
     if (cartItem.id == id) {
       if (cartItem.quantity > 1) {
         --cartItem.quantity;
         if (cartItem.id == 1 && cartItem.quantity > 2) {
-          cartItem.subtotalWithDiscount -= 10;
+          cartItem.subtotalWithDiscount -= priceWithPromoAceite;
           cartItem.subtotal -= cartItem.price;
           total -= 10;
-        } else if (cartItem.id == 1 && cartItem.quantity == 2){
+        } else if (cartItem.id == 1 && cartItem.quantity == 2) {
           cartItem.subtotalWithDiscount -= 9;
           cartItem.subtotal -= cartItem.price;
           total -= 9;
-        } else if (cartItem.id == 3 && cartItem.quantity >= 10){
-          cartItem.subtotalWithDiscount -= (2*cartItem.price)/3;
+        } else if (cartItem.id == 3 && cartItem.quantity >= 10) {
+          cartItem.subtotalWithDiscount -= priceWithPromoMezcla;
           cartItem.subtotal -= cartItem.price;
-          total -= (2*cartItem.price)/3;
-        } else if (cartItem.id == 3 && cartItem.quantity == 9){
+          total -= priceWithPromoMezcla;
+        } else if (cartItem.id == 3 && cartItem.quantity == 9) {
           cartItem.subtotalWithDiscount += 16.67;
           cartItem.subtotal -= cartItem.price;
           total += 11.67;
-        } else{
-        cartItem.subtotal -= cartItem.price;
-        total -= cartItem.price;
+        } else {
+          cartItem.subtotal -= cartItem.price;
+          total -= cartItem.price;
         }
         printCart();
       } else {

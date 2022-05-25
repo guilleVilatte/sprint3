@@ -1,0 +1,36 @@
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+// Modificando index.html
+header{
+    background-image: url("./images/prodHeader.jpg");
+    background-position: center;
+}
+h1,h2,h3{
+    font-family: titulos;
+}
+body{
+    font-family: general;
+}
+#btn:focus{
+    color: $danger;
+    background-color: white;
+    border-color:$danger;
+}
+.btn{
+    border-color: white;
+    color: white;
+    background-color: $danger;
+}
+.btn:hover{
+    color: $danger !important;
+    background-color: white;
+    border-color: red;
+}
+@font-face {
+    font-family: titulos;
+    src: url("Poppins/Poppins-SemiBold.ttf") format('truetype');
+}
+@font-face {
+    font-family: general;
+    src: url("./Poppins/Poppins-Regular.ttf") format('truetype');
+}

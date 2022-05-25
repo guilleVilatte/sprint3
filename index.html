@@ -17,7 +17,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="./index.css"/>
     <!-- Bootstrap icons-->
     <link
       rel="stylesheet"
@@ -35,15 +35,15 @@
   >
     <!-- Navigation-->
     <nav
-      class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg"
+      class="navbar py-3 py-lg-0 navbar-light bg-danger navbar-expand-lg"
       id="navbar-example2"
     >
       <div class="container d-flex">
-        <a class="navbar-brand" href="#!">ShopNow</a>
+        <a class="navbar-brand text-white" href="#!">ShopNow</a>
         <div class="d-flex flex-row order-lg-last align-items-center">
           <button
             type="button"
-            class="navbar-toggler order-last collapsed"
+            class="navbar-toggler order-last collapsed text-white"
             data-bs-toggle="collapse"
             data-bs-target="#navbar"
             aria-expanded="false"
@@ -57,7 +57,7 @@
             <li class="dropdown search-dropdown nav-item py-lg-3">
               <a
                 href="javascript:void(0)"
-                class="btn btn-outline-dark flex-center"
+                class="cartBtn btn flex-center text-white"
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#cartModal"
@@ -66,7 +66,7 @@
               >
                 <i class="fas fa-shopping-cart me-1"></i> Cart
                 <span
-                  class="badge bg-dark text-white ms-1 rounded-pill"
+                  class="badge bg-dark text-danger bg-white ms-1 rounded-pill"
                   id="count_product"
                   >0</span
                 >
@@ -78,17 +78,17 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
             <li class="nav-item">
-              <a class="nav-link" href="#grocery"
+              <a class="nav-link text-white" href="#grocery"
                 ><i class="fas fa-shopping-basket"></i> Grocery</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#beauty"
+              <a class="nav-link text-white" href="#beauty"
                 ><i class="fas fa-heart"></i> Beauty</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#clothes"
+              <a class="nav-link text-white" href="#clothes"
                 ><i class="fas fa-tshirt"></i> Clothes</a
               >
             </li>
@@ -98,11 +98,11 @@
     </nav>
 
     <!-- Header-->
-    <header class="bg-dark py-5">
-      <div class="container px-4 px-lg-5 my-5">
+    <header class="head bg-dark py-5">
+      <div class="container px-4 px-lg-5 my-5" style="width: 65vw;">
         <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-          <p class="lead fw-normal text-white-50 mb-0">
+          <h1 class="display-4  fw-bolder  bg-danger rounded-3">IT Academy Shop</h1>
+          <p class="lead fw-bolder text-white-25 fs-4 mb-0 bg-danger rounded-3">
             Get up to 50% off Today Only!
           </p>
         </div>
@@ -111,16 +111,16 @@
 
     <!-- Section-->
     <section class="pt-5" id="grocery">
-      <h2 class="text-center">
+      <h2 class="text-center text-danger">
         <i class="fas fa-shopping-basket pe-3"></i>Grocery
       </h2>
       <div class="container px-4 px-lg-5 mt-5">
         <div
-          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+          class="row gx-4 gx-lg-5 row-cols-2 justify-content-center"
         >
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/descarga.jfif" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Cooking Oil</h5>
@@ -140,9 +140,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/pasta.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Pasta</h5>
@@ -162,9 +162,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/cake.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Instant cupcake mixture</h5>
@@ -189,14 +189,14 @@
     </section>
 
     <section class="pt-5" id="beauty">
-      <h2 class="text-center"><i class="fas fa-heart pe-3"></i>Beauty</h2>
+      <h2 class="text-center text-danger"><i class="fas fa-heart pe-3"></i>Beauty</h2>
       <div class="container px-4 px-lg-5 mt-5">
         <div
-          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+          class="row gx-4 gx-lg-5 row-cols-2 justify-content-center"
         >
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/all.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">All-in-1</h5>
@@ -216,9 +216,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/kit2.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Zero makeup kit</h5>
@@ -238,9 +238,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/lib.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Lip tints</h5>
@@ -265,14 +265,14 @@
     </section>
 
     <section class="pt-5" id="clothes">
-      <h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
+      <h2 class="text-center text-danger"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
       <div class="container px-4 px-lg-5 mt-5">
         <div
-          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+          class="row gx-4 gx-lg-5 row-cols-2 justify-content-center"
         >
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/dress.jpeg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Lawn dress</h5>
@@ -292,9 +292,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/combo.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Lawn-chiffon combo</h5>
@@ -314,9 +314,9 @@
               </div>
             </div>
           </div>
-          <div class="col mb-5">
+          <div class="col-10 col-sm-6 col-lg-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/CAILENI-Girls.jpg" alt="..." />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Toddler Frock</h5>
@@ -341,7 +341,7 @@
     </section>
 
     <!-- Footer-->
-    <footer class="py-3 bg-dark">
+    <footer class="py-3 bg-danger">
       <div class="container">
         <p class="m-0 text-center text-white">
           Copyright &copy; Your Website 2022
